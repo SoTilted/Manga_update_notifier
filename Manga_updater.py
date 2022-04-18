@@ -103,24 +103,24 @@ def main():
 
     #print(len(json_object))
     if len(Updated)==0:#If the list is empty, it means no new manga updated since last check.
-        #print('No new manga updates since last scheduled check.\n')
-        engine.say('No new manga updates since last scheduled check.')
+        #print('No new manga updates since last scheduled check.\n') #I dont use this print since i run this script on start-up of my laptop.
+        engine.say('No new manga updates since last scheduled check.')#text to speech
         engine.runAndWait()
     else:
         for manga in Updated:#Prints the manga title, chapter and how many unread chapters i have.
-            #print(f'{manga[0]} chapter {manga[1]} has been updated.\nYou have not read the last {int(manga[2])} chapters.')
-            engine.say(f'{manga[0]} chapter {manga[1]} has been updated.\nYou have not read the last {int(manga[2])} chapters.')
+            #print(f'{manga[0]} chapter {manga[1]} has been updated.\nYou have not read the last {int(manga[2])} chapters.')#Same reason as before.
+            engine.say(f'{manga[0]} chapter {manga[1]} has been updated.\nYou have not read the last {int(manga[2])} chapters.')#text to speech
             engine.runAndWait()
     return schedule.CancelJob
 counter=0
 
 while True:
-    if counter==0:
+    if counter==0:#We want to execute main once on start-up of the code
         schedule.every(5).seconds.do(main)
         counter+=1
         time.sleep(6)
         
-    else:
+    else:#we schedule to run the code every 6 hours
         schedule.every(6).hours.do(main)
-        time.sleep(6*3600)
+        time.sleep(3590)
     schedule.run_pending()
