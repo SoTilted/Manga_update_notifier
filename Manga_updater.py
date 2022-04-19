@@ -121,6 +121,6 @@ while True:
         time.sleep(6)
         
     else:#we schedule to run the code every 6 hours
-        schedule.every(6).hours.do(main)
+        schedule.every(1).hour.do(main)
         time.sleep(3590)
     schedule.run_pending()
