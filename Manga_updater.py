@@ -72,7 +72,7 @@ def main():
     #<-------------------------------------Reading, checking and writting the json file(Database).------------------------------------->
     Updated=[] 
 
-    with open('/home/gerasimos/Downloads/visual-studio-code-bin/Coding/GitHub/Manga_update_notifier/Manga_Base.json', 'r') as openfile:
+    with open('/home/gerasimos/repos/Manga_update_notifier/Manga_Base.json', 'r') as openfile:
         # Reading from json file
         Database = json.load(openfile)#this holds our database.
 
@@ -89,7 +89,7 @@ def main():
 
     New_Database = json.dumps(Database, indent = 1)#This is the updated Database.
     # Writing to sample.json
-    with open("/home/gerasimos/Downloads/visual-studio-code-bin/Coding/GitHub/Manga_update_notifier/Manga_Base.json", "w") as outfile:
+    with open("/home/gerasimos/repos/Manga_update_notifier/Manga_Base.json", "w") as outfile:
         outfile.write(New_Database)#we overwrite the previous data with the new data.
 
     #print(len(json_object))
